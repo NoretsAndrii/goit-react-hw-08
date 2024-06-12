@@ -1,6 +1,6 @@
 import { createSelector, createSlice } from '@reduxjs/toolkit';
 import { fetchContacts, addContact, deleteContact } from './contactsOps';
-import { selectNameFilter } from '../filters/filtersSlice';
+import { selectNameFilter, selectTypeFilter } from '../filters/filtersSlice';
 
 const contactsInitialState = {
   items: [],
@@ -55,10 +55,13 @@ export const selectLoading = state => state.contacts.loading;
 export const selectError = state => state.contacts.error;
 
 export const selectFilteredContacts = createSelector(
-  [selectContacts, selectNameFilter],
-  (contacts, filter) => {
-    return contacts.filter(({ name }) => {
-      return name.toLowerCase().includes(filter.toLowerCase());
-    });
+  [selectContacts, selectNameFilter, selectTypeFilter],
+  (contacts, filter, type) => {
+    const searchKey = type === 'name' ? 'name' : 'number';
+    return contacts
+      .filter(contact => {
+        return contact[searchKey].toLowerCase().includes(filter.toLowerCase());
+      })
+      .toSorted((a, b) => a.name.localeCompare(b.name));
   }
 );

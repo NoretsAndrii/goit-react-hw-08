@@ -1,16 +1,23 @@
-.searchBox {
-  margin-left: auto;
-  margin-right: auto;
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 8px;
+}
+
+.search {
   width: 300px;
-  margin-bottom: 16px;
 }
 
 .label {
   text-align: start;
-  display: block;
+  display: inline-block;
+}
+
+.select {
+  border: 0px solid transparent;
 }
 
 .input {
   width: 100%;
-  margin-bottom: 8px;
 }

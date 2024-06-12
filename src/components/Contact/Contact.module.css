@@ -1,7 +1,22 @@
-.contactBox {
+/* .contactBox {
+  text-align: start;
+} */
+
+.name {
+  width: 400px;
   text-align: start;
 }
 
 .icon {
   margin-right: 8px;
+}
+
+.buttons {
+  margin-left: auto;
+}
+
+.button {
+  background-color: transparent;
+  line-height: 0;
+  border: 0px solid transparent;
 }

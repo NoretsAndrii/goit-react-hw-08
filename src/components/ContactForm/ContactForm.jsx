@@ -22,7 +22,7 @@ const initialValues = {
   number: '',
 };
 
-export default function ContactForm() {
+export default function ContactForm({ closeModal }) {
   const nameFieldId = useId();
   const telFieldId = useId();
   const dispatch = useDispatch();
@@ -30,6 +30,7 @@ export default function ContactForm() {
   const handleSubmit = (values, actions) => {
     dispatch(addContact(values));
     actions.resetForm();
+    closeModal();
   };
 
   return (

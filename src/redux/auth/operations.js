@@ -9,6 +9,8 @@ export const register = createAsyncThunk(
     try {
       const response = await axios.post('/users/signup', newUser);
       console.log(response);
+      axios.defaults.headers.common.Authorization = `${response.data.token}`;
+
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -22,6 +24,8 @@ export const login = createAsyncThunk(
     try {
       const response = await axios.post('/users/login', userData);
       console.log(response);
+      axios.defaults.headers.common.Authorization = `${response.data.token}`;
+
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

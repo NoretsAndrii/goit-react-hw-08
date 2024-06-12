@@ -1,0 +1,11 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 24px;
+}
+
+.link {
+  text-decoration: none;
+  margin-right: 16px;
+  color: currentColor;
+}
