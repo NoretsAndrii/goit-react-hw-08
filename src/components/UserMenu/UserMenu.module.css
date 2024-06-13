@@ -1,0 +1,11 @@
+.wrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.button {
+  background-color: transparent;
+  line-height: 0;
+  border: 0px solid transparent;
+  padding: 0;
+}

@@ -6,6 +6,7 @@ import {
   updateContact,
 } from './contactsOps';
 import { selectNameFilter, selectTypeFilter } from '../filters/filtersSlice';
+import { logout } from '../auth/operations';
 
 const contactsInitialState = {
   items: [],
@@ -60,7 +61,14 @@ const contactsSlice = createSlice({
         );
         state.items[index] = action.payload;
       })
-      .addCase(updateContact.rejected, handleRejected);
+      .addCase(updateContact.rejected, handleRejected)
+      .addCase(logout.pending, handlePending)
+      .addCase(logout.fulfilled, state => {
+        state.loading = false;
+        state.error = false;
+        state.items = [];
+      })
+      .addCase(logout.rejected, handleRejected);
   },
 });
 

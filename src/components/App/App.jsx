@@ -5,9 +5,21 @@ import ContactsPage from '../../pages/ContactsPage/ContactsPage';
 import RegisterPage from '../../pages/RegisterPage/RegisterPage';
 import LoginPage from '../../pages/LoginPage/LoginPage';
 import Header from '../Header/Header';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { refresh } from '../../redux/auth/operations';
+import { selectIsRefreshing } from '../../redux/auth/selectors';
 
 function App() {
-  return (
+  const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectIsRefreshing);
+  console.log(isRefreshing);
+
+  useEffect(() => {
+    dispatch(refresh());
+  }, [dispatch]);
+
+  return !isRefreshing ? (
     <>
       <Header />
       <Routes>
@@ -17,7 +29,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
       </Routes>
     </>
-  );
+  ) : null;
 }
 
 export default App;

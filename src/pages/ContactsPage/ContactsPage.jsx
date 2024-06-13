@@ -43,7 +43,7 @@ export default function PhoneBook() {
 
   return (
     <div>
-      <h1>Phonebook</h1>
+      <h2>Phonebook</h2>
       <Modal
         isOpen={isModalOpen}
         // onRequestClose={closeModal}

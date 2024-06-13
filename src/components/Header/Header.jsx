@@ -3,6 +3,7 @@ import css from './Header.module.css';
 import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
 import UserMenu from '../UserMenu/UserMenu';
+import AuthNav from '../AuthNav/AuthNav';
 
 export default function Header() {
   const IsLoggedIn = useSelector(selectIsLoggedIn);
@@ -19,19 +20,7 @@ export default function Header() {
           </NavLink>
         )}
       </div>
-      <div>
-        {IsLoggedIn && <UserMenu />}
-        {!IsLoggedIn && (
-          <>
-            <NavLink className={css.link} to="/register">
-              Register
-            </NavLink>
-            <NavLink className={css.link} to="/login">
-              Login
-            </NavLink>
-          </>
-        )}
-      </div>
+      <div>{IsLoggedIn ? <UserMenu /> : <AuthNav />}</div>
     </header>
   );
 }
