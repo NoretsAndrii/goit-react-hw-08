@@ -10,8 +10,9 @@ import {
   selectTypeFilter,
   setFilterType,
 } from '../../redux/filters/filtersSlice';
+import { setModalOpen } from '../../redux/modal/modalSlice';
 
-export default function SearchBox({ onClick }) {
+export default function SearchBox() {
   const filter = useSelector(selectNameFilter);
   const filterType = useSelector(selectTypeFilter);
   const searchNameFieldId = useId();
@@ -25,9 +26,22 @@ export default function SearchBox({ onClick }) {
     dispatch(setFilterType(e.target.value));
   };
 
+  function openModal() {
+    const data = {
+      isModalOpen: true,
+      typeModal: 'Add contact',
+      initialValues: {
+        name: '',
+        number: '',
+      },
+      id: null,
+    };
+    dispatch(setModalOpen(data));
+  }
+
   return (
     <div className={css.wrapper}>
-      <button onClick={onClick}>Add contact</button>
+      <button onClick={openModal}>Add contact</button>
       <div className={css.search}>
         <label className={css.label} htmlFor={searchNameFieldId}>
           Find contacts by

@@ -1,11 +1,11 @@
 import { NavLink } from 'react-router-dom';
 import css from './Header.module.css';
 import { useSelector } from 'react-redux';
-import { selectIsLoggedIn, selectUser } from '../../redux/auth/selectors';
+import { selectIsLoggedIn } from '../../redux/auth/selectors';
+import UserMenu from '../UserMenu/UserMenu';
 
 export default function Header() {
   const IsLoggedIn = useSelector(selectIsLoggedIn);
-  const userName = useSelector(selectUser);
 
   return (
     <header className={css.header}>
@@ -20,10 +20,9 @@ export default function Header() {
         )}
       </div>
       <div>
-        {IsLoggedIn && <p>Welcome, {userName.name}</p>}
+        {IsLoggedIn && <UserMenu />}
         {!IsLoggedIn && (
           <>
-            {' '}
             <NavLink className={css.link} to="/register">
               Register
             </NavLink>

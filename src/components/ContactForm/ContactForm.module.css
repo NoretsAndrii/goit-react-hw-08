@@ -18,3 +18,11 @@
 .error {
   color: red;
 }
+
+.close {
+  background-color: transparent;
+  border: 0px solid transparent;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}

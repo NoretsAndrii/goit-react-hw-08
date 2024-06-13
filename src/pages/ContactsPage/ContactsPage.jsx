@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'react-modal';
 import { fetchContacts } from '../../redux/contacts/contactsOps';
@@ -8,6 +8,7 @@ import SearchBox from '../../components/SearchBox/SearchBox';
 import Loader from '../../components/Loader/Loader';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import ContactList from '../../components/ContactList/ContactList';
+import { selectIsModalOpen } from '../../redux/modal/modalSlice';
 
 Modal.setAppElement('#root');
 
@@ -25,12 +26,13 @@ const customStyles = {
     padding: '0',
     border: '2px solid black',
     borderRadius: '8px',
+    paddingTop: '16px',
   },
 };
 
 export default function PhoneBook() {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-
+  // const [modalIsOpen, setModalIsOpen] = useState(false);
+  const isModalOpen = useSelector(selectIsModalOpen);
   const isLoading = useSelector(selectLoading);
   const isError = useSelector(selectError);
 
@@ -39,26 +41,19 @@ export default function PhoneBook() {
     dispatch(fetchContacts());
   }, [dispatch]);
 
-  function openModal() {
-    setModalIsOpen(true);
-  }
-
-  function closeModal() {
-    setModalIsOpen(false);
-  }
   return (
     <div>
       <h1>Phonebook</h1>
       <Modal
-        isOpen={modalIsOpen}
+        isOpen={isModalOpen}
         // onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <ContactForm closeModal={closeModal} />
+        <ContactForm />
       </Modal>
 
-      <SearchBox onClick={openModal} />
+      <SearchBox />
       {isLoading && <Loader />}
       {isError && <ErrorMessage />}
       {!isLoading && !isError && <ContactList />}
