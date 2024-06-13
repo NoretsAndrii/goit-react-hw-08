@@ -6,6 +6,10 @@
   background-color: rgb(219, 213, 213);
 }
 
+#root {
+  padding: 8px;
+}
+
 h1,
 h2,
 h3,
@@ -30,4 +34,21 @@ img {
 
 button {
   cursor: pointer;
+  background-color: rgb(104, 100, 100);
+  padding: 4px 8px;
+  color: lightgrey;
+  border-radius: 4px;
+  transition: opacity 250ms ease;
+}
+
+button:hover {
+  opacity: 0.7;
+}
+
+a {
+  transition: opacity 250ms ease;
+}
+
+a:hover {
+  opacity: 0.7;
 }

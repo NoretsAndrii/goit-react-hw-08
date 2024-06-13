@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'react-modal';
-import { fetchContacts } from '../../redux/contacts/contactsOps';
-import { selectError, selectLoading } from '../../redux/contacts/contactsSlice';
+import { fetchContacts } from '../../redux/contacts/operations';
+import { selectError, selectLoading } from '../../redux/contacts/slice';
 import ContactForm from '../../components/ContactForm/ContactForm';
 import SearchBox from '../../components/SearchBox/SearchBox';
 import Loader from '../../components/Loader/Loader';
@@ -30,26 +30,21 @@ const customStyles = {
   },
 };
 
-export default function PhoneBook() {
-  // const [modalIsOpen, setModalIsOpen] = useState(false);
+export default function ContactsPage() {
   const isModalOpen = useSelector(selectIsModalOpen);
   const isLoading = useSelector(selectLoading);
   const isError = useSelector(selectError);
 
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
   return (
     <div>
-      <h2>Phonebook</h2>
-      <Modal
-        isOpen={isModalOpen}
-        // onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
+      <h2 style={{ fontSize: 36 }}>Phonebook</h2>
+      <Modal isOpen={isModalOpen} style={customStyles}>
         <ContactForm />
       </Modal>
 

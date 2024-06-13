@@ -1,11 +1,20 @@
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 8px 24px;
+  padding: 16px 24px;
+  border-bottom: 2px solid black;
+  margin-bottom: 16px;
 }
 
 .link {
   text-decoration: none;
   margin-right: 16px;
   color: currentColor;
+  padding: 4px 8px;
+}
+
+.active {
+  background-color: rgb(104, 100, 100);
+  border-radius: 4px;
+  color: lightgrey;
 }

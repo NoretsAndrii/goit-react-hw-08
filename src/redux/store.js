@@ -11,7 +11,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { contactsReducer } from './contacts/contactsSlice';
+import { contactsReducer } from './contacts/slice';
 import { filtersReducer } from './filters/filtersSlice';
 import { authReducer } from './auth/slice';
 import { modalReducer } from './modal/modalSlice';

@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 
 import css from './Contact.module.css';
 import { FaUser, FaPhone, FaXmark, FaWpforms } from 'react-icons/fa6';
-import { deleteContact } from '../../redux/contacts/contactsOps';
+import { deleteContact } from '../../redux/contacts/operations';
 import { setModalOpen } from '../../redux/modal/modalSlice';
 
 export default function Contact({ name, number, id }) {

@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import css from './ContactForm.module.css';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact, updateContact } from '../../redux/contacts/contactsOps';
+import { addContact, updateContact } from '../../redux/contacts/operations';
 import {
   selectModalSettings,
   setModalOpen,
@@ -59,6 +59,7 @@ export default function ContactForm() {
         <Form className={css.form}>
           <label className={css.label} htmlFor={nameFieldId}>
             Name
+            <ErrorMessage className={css.error} name="name" component="div" />
           </label>
           <Field
             className={css.input}
@@ -66,10 +67,10 @@ export default function ContactForm() {
             name="name"
             id={nameFieldId}
           ></Field>
-          <ErrorMessage className={css.error} name="name" component="div" />
 
           <label className={css.label} htmlFor={telFieldId}>
-            Number
+            Number{' '}
+            <ErrorMessage className={css.error} name="number" component="div" />
           </label>
           <Field
             className={css.input}
@@ -77,8 +78,6 @@ export default function ContactForm() {
             name="number"
             id={telFieldId}
           ></Field>
-          <ErrorMessage className={css.error} name="number" component="div" />
-
           <button type="submit">{modalSettings.typeModal}</button>
         </Form>
       </Formik>

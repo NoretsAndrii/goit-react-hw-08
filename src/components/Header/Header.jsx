@@ -8,14 +8,18 @@ import AuthNav from '../AuthNav/AuthNav';
 export default function Header() {
   const IsLoggedIn = useSelector(selectIsLoggedIn);
 
+  const buildLinkClass = ({ isActive }) => {
+    return !isActive ? css.link : [css.link, css.active].join(' ');
+  };
+
   return (
     <header className={css.header}>
       <div>
-        <NavLink className={css.link} to="/">
+        <NavLink className={buildLinkClass} to="/">
           Home
         </NavLink>
         {IsLoggedIn && (
-          <NavLink className={css.link} to="/contacts">
+          <NavLink className={buildLinkClass} to="/contacts">
             PhoneBook
           </NavLink>
         )}

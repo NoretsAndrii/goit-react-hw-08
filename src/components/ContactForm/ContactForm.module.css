@@ -16,7 +16,9 @@
 }
 
 .error {
+  position: absolute;
   color: red;
+  right: 16px;
 }
 
 .close {
@@ -25,4 +27,5 @@
   position: absolute;
   top: 8px;
   right: 8px;
+  color: black;
 }

@@ -2,4 +2,11 @@
   text-decoration: none;
   margin-right: 16px;
   color: currentColor;
+  padding: 4px 8px;
+}
+
+.active {
+  background-color: rgb(104, 100, 100);
+  border-radius: 4px;
+  color: lightgrey;
 }
