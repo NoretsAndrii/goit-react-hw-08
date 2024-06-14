@@ -4,13 +4,12 @@ import { useSelector } from 'react-redux';
 import css from './SearchBox.module.css';
 
 import { useDispatch } from 'react-redux';
+import { setFilter, setFilterType } from '../../redux/filters/slice';
+import { setModalOpen } from '../../redux/modal/slice';
 import {
-  setFilter,
   selectNameFilter,
   selectTypeFilter,
-  setFilterType,
-} from '../../redux/filters/filtersSlice';
-import { setModalOpen } from '../../redux/modal/modalSlice';
+} from '../../redux/filters/selectors';
 
 export default function SearchBox() {
   const filter = useSelector(selectNameFilter);

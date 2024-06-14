@@ -6,10 +6,8 @@ import css from './ContactForm.module.css';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact, updateContact } from '../../redux/contacts/operations';
-import {
-  selectModalSettings,
-  setModalOpen,
-} from '../../redux/modal/modalSlice';
+import { setModalOpen } from '../../redux/modal/slice';
+import { selectModalSettings } from '../../redux/modal/selectors';
 
 const contactFormSchema = Yup.object().shape({
   name: Yup.string()

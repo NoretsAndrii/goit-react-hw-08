@@ -1,11 +1,10 @@
-import { createSelector, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import {
   fetchContacts,
   addContact,
   deleteContact,
   updateContact,
 } from './operations';
-import { selectNameFilter, selectTypeFilter } from '../filters/filtersSlice';
 import { logout } from '../auth/operations';
 
 const contactsInitialState = {
@@ -73,18 +72,18 @@ const contactsSlice = createSlice({
 });
 
 export const contactsReducer = contactsSlice.reducer;
-export const selectContacts = state => state.contacts.items;
-export const selectLoading = state => state.contacts.loading;
-export const selectError = state => state.contacts.error;
+// export const selectContacts = state => state.contacts.items;
+// export const selectLoading = state => state.contacts.loading;
+// export const selectError = state => state.contacts.error;
 
-export const selectFilteredContacts = createSelector(
-  [selectContacts, selectNameFilter, selectTypeFilter],
-  (contacts, filter, type) => {
-    const searchKey = type === 'name' ? 'name' : 'number';
-    return contacts
-      .filter(contact => {
-        return contact[searchKey].toLowerCase().includes(filter.toLowerCase());
-      })
-      .toSorted((a, b) => a.name.localeCompare(b.name));
-  }
-);
+// export const selectFilteredContacts = createSelector(
+//   [selectContacts, selectNameFilter, selectTypeFilter],
+//   (contacts, filter, type) => {
+//     const searchKey = type === 'name' ? 'name' : 'number';
+//     return contacts
+//       .filter(contact => {
+//         return contact[searchKey].toLowerCase().includes(filter.toLowerCase());
+//       })
+//       .toSorted((a, b) => a.name.localeCompare(b.name));
+//   }
+// );

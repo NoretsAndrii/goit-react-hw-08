@@ -23,6 +23,6 @@ const modalSlise = createSlice({
 
 export const modalReducer = modalSlise.reducer;
 export const { setModalOpen } = modalSlise.actions;
-export const selectIsModalOpen = state => state.modal.isModalOpen;
-export const selectTypeModal = state => state.modal.typeModal;
-export const selectModalSettings = state => state.modal;
+// export const selectIsModalOpen = state => state.modal.isModalOpen;
+// export const selectTypeModal = state => state.modal.typeModal;
+// export const selectModalSettings = state => state.modal;

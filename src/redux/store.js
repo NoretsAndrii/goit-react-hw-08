@@ -12,9 +12,9 @@ import {
 import storage from 'redux-persist/lib/storage';
 
 import { contactsReducer } from './contacts/slice';
-import { filtersReducer } from './filters/filtersSlice';
+import { filtersReducer } from './filters/slice';
 import { authReducer } from './auth/slice';
-import { modalReducer } from './modal/modalSlice';
+import { modalReducer } from './modal/slice';
 
 const persistConfig = {
   key: 'root',

@@ -20,7 +20,6 @@ const ContactsPage = lazy(() =>
 function App() {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing);
-  console.log(isRefreshing);
 
   useEffect(() => {
     dispatch(refresh());

@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 import css from './Contact.module.css';
 import { FaUser, FaPhone, FaXmark, FaWpforms } from 'react-icons/fa6';
 import { deleteContact } from '../../redux/contacts/operations';
-import { setModalOpen } from '../../redux/modal/modalSlice';
+import { setModalOpen } from '../../redux/modal/slice';
 import { useState } from 'react';
 
 Modal.setAppElement('#root');
